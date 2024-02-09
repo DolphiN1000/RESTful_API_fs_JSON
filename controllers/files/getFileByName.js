@@ -1,3 +1,3 @@
 const getFileByName = (req, res) => {
-    const{ fileName }
-}
+  const { fileName } = req.body;
+};
