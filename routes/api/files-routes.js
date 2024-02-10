@@ -1,15 +1,43 @@
-const express = require('express');
-const router = express.Router()
-const  { createFile, getListFiles, getSinglFile, updateFileData, removeFile } = require("../../controllers/files")
+const express = require("express");
+const filesRouter = express.Router();
+const {
+  addData,
+  getListFiles,
+  getSinglFile,
+  updateFileData,
+  removeFile,
+} = require("../../controllers");
 
-router.post("/create/:file", createFile)
-// router.get("/", getListFiles)
-// router.get("/:file", getSinglFile)
-// router.patch('/update/:id', updateFileData);
-// router.delete("/remove/:id", removeFile)
+filesRouter.post("/create/",
+() => {console.log('add file data')},
+ addData
+ )
+ ;
+// async (req, res) => {
+//   try {
+//     const fileName = req.body.fileName;
+//     const fileData = req.body.fileData;
+
+//     if (!fileName || !fileData) {
+//       return res.status(400).json({ error: "Missing fileName or fileData" });
+//     }
+
+//     await fs.writeFile(
+//       path.join(dataPath, `${fileName}.json`),
+//       JSON.stringify(fileData)
+//     );
+//     res.status(201).json({ message: "File created successfully" });
+//   } catch (error) {
+//     res.status(500).json({ error: "Server error" });
+//   }
+// });
+filesRouter.get("/", getListFiles)
+filesRouter.get("/:file", getSinglFile)
+filesRouter.patch('/update/:id', updateFileData);
+filesRouter.delete("/remove/:id", removeFile)
 
 // function createFile(req, res){
-//     let file = req.params.file 
+//     let file = req.params.file
 //     if (file == 'readme'){
 //         return res.status(403).json({message : "Forbidden"})
 //     }
@@ -17,7 +45,7 @@ router.post("/create/:file", createFile)
 //     try {
 //         let data = JSON.parse(req.body.data)
 //         console.log("DATA: ", data)
-        
+
 //         fs.writeFileSync(`db/${file}.json`,JSON.stringify(data))
 //         res.status(201).json(data)
 //     } catch (error) {
@@ -26,6 +54,4 @@ router.post("/create/:file", createFile)
 //         }
 // }
 
-
-
-module.exports = router;
+module.exports = filesRouter;

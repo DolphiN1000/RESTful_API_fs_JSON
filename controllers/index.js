@@ -1,11 +1,15 @@
-const addFIleData = require("./addFIleData");
-const getFileByName = require("./getFileByName");
-const getFilesList = require("./getFilesList");
-const removeFileByName = require("./removeFileByName");
-
-module.exports = {
-  addFIleData,
+const {
+  addData,
   getFileByName,
   getFilesList,
   removeFileByName,
+  updateFileData,
+} = require("./files");
+
+module.exports = {
+  addData,
+  getFileByName,
+  getFilesList,
+  removeFileByName,
+  updateFileData,
 };
