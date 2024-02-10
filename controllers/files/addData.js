@@ -7,11 +7,9 @@ const addData = async (req, res) => {
     const { fileName = "noName" } = req.body;
 
     const fileData = req.body.fileData;
-    console.log(`Saving ${fileName}`, fileData);
     if (!fileName || !fileData) {
       return res.status(400).json({ error: "Missing fileName or fileData" });
     }
-    console.log(dataPath);
     await fs.writeFile(
       path.join(dataPath, `file-${Date.now()}-${fileName}.json`),
       JSON.stringify(fileData)

@@ -4,7 +4,7 @@ const addData = require("./addData");
 const getFileByName = require("./getFileByName");
 const getFilesList = require("./getFilesList");
 const removeFileByName = require("./removeFileByName");
-const updateFileData = require("./updateFileData")
+const updateFileData = require("./updateFileData");
 
 module.exports = {
   addData: ctrlWrapper(addData),

@@ -1,3 +1,3 @@
-const filesRouter = require("./files-routes");
+const filesRouter = require("./filesRouter");
 
 module.export = filesRouter ;
